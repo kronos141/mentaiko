@@ -9,14 +9,16 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Heroic Features - Start Bootstrap Template</title>
+  <title>Home|Mentaiko University</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
 
+  <!-- Including Intro.js -->
+  <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +26,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#">Mentaiko University</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -39,10 +41,10 @@
             <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link white" href="#"><span class="login-button" data-step="5" data-intro="紹介したものは全て大学生限定コンテンツです！ここからログイン/サインアップして始めましょう！" data-title="ログイン/サインアップ">Log in</span></a>
           </li>
         </ul>
       </div>
@@ -51,31 +53,56 @@
 
   <!-- Page Content -->
   <div class="container">
-
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
-      <h1 class="display-3">A Warm Welcome!</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+    <header class="jumbotron my-4 white">
+      <h1 class="display-3">Welcome!</h1>
+      <p class="lead">明太子大学の学生限定サイトです。履修やサークル活動の情報を手に入れて有意義な学生生活を送りましょう！</p>
+      <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="訪問ありがとうございます！もし使い方に困ったら、またこのボタンを押してくださいね！" data-title="チュートリアル">How to use?</a>
     </header>
 
     <!-- Page Features -->
     <div class="row text-center">
 
-      <div class="col-lg-3 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 mb-4" data-step="2" data-intro="大学生は履修を自分で決める必要があります。ここから履修を組みましょう。" data-title="時間割">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <img class="card-img-top" src="{% static "image/timetable_image.png"%}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <h4 class="card-title">時間割</h4>
+            <p class="card-text">自分が登録した時間割の確認ができます。先輩や友人の履修を参考にしながら履修登録を行えます。</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="#" class="btn btn-primary">Go!</a>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 mb-4" data-step="3" data-intro="学校生活では縦や横のつながりが重要です！ここから交流の輪を広げてみませんか？" data-title="チャットで交流">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/chat_image.png"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">チャット</h4>
+            <p class="card-text">同じ学科の仲間や先輩を見つけて交流ができます。共通点を見つけて友人を作れます。</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Go!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4" data-step="4" data-intro="大学にはたくさんのサークルがあります！あなたに合ったサークルもきっと見つかることでしょう！" data-title="サークル一覧">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/circle_image.png"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">サークル一覧</h4>
+            <p class="card-text">自分の趣味に合ったサークルを探すことができます。サークルで先輩や後輩と交流してみましょう。</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Go!</a>
+          </div>
+        </div>
+      </div>
+
+      {% comment %} <div class="col-lg-3 col-md-6 mb-4">
         <div class="card h-100">
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
@@ -83,36 +110,10 @@
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="#" class="btn btn-primary">Go!</a>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+      </div> {% endcomment %}
 
     </div>
     <!-- /.row -->
@@ -123,7 +124,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Team-I Mentaiko 2021</p>
     </div>
     <!-- /.container -->
   </footer>
@@ -131,7 +132,6 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
+  <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 </body>
-
 </html>
