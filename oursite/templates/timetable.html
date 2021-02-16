@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Heroic Features - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+  <link href="{% static 'css/timetable.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">時間割</h1>
+      <p class="lead">必修科目・・赤，選択科目・・黄，人文科目・・緑....</p>
+      <!-- <a href="#" class="btn btn-primary btn-lg">Call to action!</a> -->
+    </header>
+
+    <!-- 時間割テーブル本体-->
+    <table class="ehr-timetable" id="ehr-timetable">
+      <tr>
+      <th class="ehr-timetable-hiddencell"></th>
+        <td class="ehr-timetable-daycell">月</td>
+        <td class="ehr-timetable-daycell">火</td>
+        <td class="ehr-timetable-daycell">水</td>
+        <td class="ehr-timetable-daycell">木</td>
+        <td class="ehr-timetable-daycell">金</td>
+        <td class="ehr-timetable-daycell">土</td>
+      </tr>
+    </table>
+
+    <!-- ポップアップ -->
+    <div class="modal fade" id="ehr-Modal" tabindex="-1">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<h4 class="modal-title">N曜日 M限目</h4>
+    			</div>
+          <div class="cp_ipselect cp_sl04">
+            <select name="new-subject" id="new-subject"></select><br>
+          </div>
+    			<div class="modal-body">
+            <div id="ehr-subject-note">
+              <div>
+                メモ
+              </div>
+    				  <textarea class="subject-note" id="subject-note" cols="40" rows="5" wrap="soft">レポート課題 mm/ddまで</textarea>
+            </div>
+          </div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-cancel" data-dismiss="modal">キャンセル</button>
+    				<button type="button" class="btn btn-submit" onclick="modalButtonClick()">保存</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+
+  <script>
+    //時間割作成
+    var timeTable = document.getElementById("ehr-timetable");
+    for (var i = 0; i < 7; i++) {
+        var tr = document.createElement('tr');
+        for (var j = 0; j < 7; j++) {
+            if(j === 0) {
+                var th = document.createElement('th');
+                th.textContent = i + 1 + " 限";
+                tr.appendChild(th);
+            } else {
+                var td = document.createElement('td');
+                //ここにデータベースから持ってきた値突っ込む{科目名,必修選択,メモ,講義教室,zoomURL}
+                td.textContent = "基礎科学実験";
+                td.id = "ehr-timetable-" + (i + 1) + "-" + j
+                //td.style.backgroundColor = "#ff0000"
+                tr.appendChild(td);
+                td.addEventListener("click", {day: j, timed:i+1, handleEvent: onCellClick});
+            }
+        }
+        timeTable.appendChild(tr);
+    }
+
+
+
+    //選択中の時間割
+    var day = -1
+    var timed = -1
+
+
+    //セルクリック
+    function onCellClick(e){
+      var days = ["月","火","水","木","金","土"];
+      day = Number(this.day-1);
+      timed = this.timed
+      var modal = $('#ehr-Modal');
+      modal.find('.modal-title').text(days[day] + "曜日 " + timed + " 時限目")
+      modal.modal();
+
+      //モーダル作成
+      var subjects = ["数理統計学","微分積分学第一","物理学概論第一","数学演習第一","基礎科学実験"]
+      var selectSubject = document.getElementById('new-subject');
+      var slectedSubject = document.getElementById("ehr-timetable-" + timed + "-" + (day+1));
+      document.createElement('option')
+      for(var i = 0; i < subjects.length; i++){
+        var option = document.createElement('option');
+        option.setAttribute('value', subjects[i]);
+        option.innerHTML = subjects[i];
+        option.id = "select-option"
+        if (slectedSubject.textContent === subjects[i]){
+          option.selected = true
+        }
+        selectSubject.appendChild(option);
+      };
+    }
+
+
+    //モーダルの「保存」ボタンクリック時の動作
+    function modalButtonClick(){
+      try {
+        var newSubject = document.getElementById("new-subject").value;
+        console.log(newSubject);
+        if (newSubject !== ""){
+          var td = document.getElementById("ehr-timetable-" + timed + "-" + (day+1));
+          td.textContent = newSubject;
+        }
+        $('#ehr-Modal').modal('hide');
+      } catch (error){
+        console.log("error")
+        $('#ehr-Modal').modal('hide');
+      }
+      //selectタグの子要素初期化
+      var selectSubject = document.getElementById('new-subject');
+      while (selectSubject.firstChild) {
+        selectSubject.removeChild(selectSubject.firstChild);
+      }
+    }
+
+
+
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>

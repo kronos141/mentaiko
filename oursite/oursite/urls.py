@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import test
+from . import timetable
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('test/', test.test, name='test'),
+    path('timetable/', timetable.timetable, name='timetable'),
 ]
