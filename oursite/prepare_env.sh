@@ -35,3 +35,4 @@ sudo ldconfig
 #uwsgiとnginxの同期
 sudo ln -s ~/mentaiko/oursite/server_conf/oursite_nginx.conf /etc/nginx/conf.d/oursite_nginx.conf
 
+sudo chmod o+x /home/ec2-user/
