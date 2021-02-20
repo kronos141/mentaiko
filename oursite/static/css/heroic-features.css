@@ -25,3 +25,7 @@ body {
   background-color: #ca7373;
   border-color: #ca7373;
 }
+
+a:hover{
+  text-decoration: none;
+}
