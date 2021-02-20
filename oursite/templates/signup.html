@@ -1,0 +1,58 @@
+<html>
+
+<h1>登録ページ</h1>
+
+<form method="POST">{%csrf_token%}
+  <div class="item">
+    <label class="label">苗字</label>
+    <input class="inputs" type="text" name="username_family">
+  </div>
+
+  <div class="item">
+    <label class="label">名前</label>
+    <input class="inputs" type="text" name="username_first">
+  </div>
+  
+  <div class="item">
+    <label class="label">メールアドレス</label>
+    <input class="inputs" type="email" name="email">
+  </div>
+
+  <div class="item">
+    <p class="label">学年</p>
+    <div class="inputs">
+      <select name="grade">
+        <option value="1">B1</option>
+        <option value="2">B2</option>
+        <option value="3">B3</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="item">
+    <p class="label">学科</p>
+    <div class="inputs">
+      <select name="department">
+        <option value="1">B1</option>
+        <option value="2">B2</option>
+        <option value="3">B3</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="item">
+    <label class="label">password</label>
+    <input class="inputs" type="text" name="enter_password">
+  </div>
+  <div class="item">
+    <label class="label">password</label>
+    <input class="inputs" type="text" name="password2">
+  </div>
+
+  <input type="submit" value="送信" />
+
+</form>
+
+<p>or <a href= "{% url 'login' %}">login</a></p>
+
+</html>
