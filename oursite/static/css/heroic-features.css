@@ -26,6 +26,6 @@ body {
   border-color: #ca7373;
 }
 
-a:hover{
-  text-decoration: none;
+.index-background{
+  background-color: #AEC4E5;
 }
