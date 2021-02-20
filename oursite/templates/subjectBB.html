@@ -90,66 +90,128 @@
   <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
 
 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
 
   <script>
 
-    var user_subjects_text = '{"物理学概論":"〇〇", "基礎科学実験":"△△", "総合コミュニケーション科学":"□□", "数理学統計":"☆☆", "ソフトウェアセキュリティ":"○□"}'
-    var user_subjects_json = JSON.parse(user_subjects_text);
-    var j = 0;
-    for(var i = 1; i <= Object.keys(user_subjects_json).length; i++){
-      //
-      if (i % 4 === 1){
-        var div_row = document.createElement('div');
-        div_row.classList.add('row','text-center');
-        div_row.id = "row text-center " + i;
-        var subjects = document.getElementById("user_subjects");
-        subjects.appendChild(div_row);
-        j++;
-      } else {
-        var div_row = document.getElementById("row text-center " + j);
-        console.log("a")
-      }
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyDCHZbRj-1SEw4mDLCfMhxW9eNSRGvmIPU",
+      authDomain: "mentaiko-b1515.firebaseapp.com",
+      projectId: "mentaiko-b1515",
+      storageBucket: "mentaiko-b1515.appspot.com",
+      messagingSenderId: "147300021097",
+      appId: "1:147300021097:web:03b93f15415244945383f8",
+      measurementId: "G-BR0ZB7KWX1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
 
-      var div_subject_card = document.createElement('div');
-      div_subject_card.classList.add('col-lg-3','col-md-6','mb-4');
-      div_subject_card.id = "col-lg-3 col-md-6 mb-4 " + i;
-      div_row.appendChild(div_subject_card);
-      //
-      var div_card = document.createElement('div');
-      div_card.classList.add('card','h-100');
-      div_card.id = "card h-100 " + i;
-      div_subject_card.appendChild(div_card);
-      //
-      var div_card_body = document.createElement('div');
-      div_card_body.classList.add('card-body');
-      div_card_body.id = "card-body " + i;
-      div_card.appendChild(div_card_body);
-      //
-      var div_card_title = document.createElement('h4');
-      div_card_title.classList.add('card-title');
-      div_card_title.id = "card-title " + i;
-      div_card_title.textContent = Object.keys(user_subjects_json)[i-1];
-      div_card_body.appendChild(div_card_title);
-      //
-      var p_card_text = document.createElement('p');
-      p_card_text.classList.add('card-text');
-      p_card_text.id = "card-text " + i;
-      p_card_text.textContent = Object.values(user_subjects_json)[i-1] + " 教授";
-      div_card_body.appendChild(p_card_text);
-      //
-      var div_card_footer = document.createElement('div');
-      div_card_footer.classList.add('card-footer');
-      div_card_footer.id = "card-footer " + i;
-      div_card.appendChild(div_card_footer);
-      //
-      var a_card_footer = document.createElement('a');
-      a_card_footer.classList.add('btn', 'btn-primary');
-      a_card_footer.id = "card-footer " + i;
-      a_card_footer.textContent = "Go!"
-      a_card_footer.href = "#"
-      div_card_footer.appendChild(a_card_footer);
+    //databaseから読み込み
+    var db = firebase.firestore();
 
+    //ユーザの時間割取得
+    function getUserTimetable(){
+      db.collection("userTimetable").get().then((query) => {
+        var utt = {
+          "Mon":{"1":"a","2":"","3":"","4":"","5":"","6":"","7":""},
+          "Tue":{"1":"","2":"","3":"","4":"","5":"","6":"","7":""},
+          "Wed":{"1":"","2":"","3":"","4":"","5":"","6":"","7":""},
+          "Thu":{"1":"","2":"","3":"","4":"","5":"","6":"","7":""},
+          "Fri":{"1":"","2":"","3":"","4":"","5":"","6":"","7":""},
+          "Sat":{"1":"","2":"","3":"","4":"","5":"","6":"","7":""}
+        };
+        var days = ["Mon","Tue","Wed","Thu","Fri","Sat"];
+        query.forEach((doc) => {
+          var data = doc.data();
+          for (var j=1;j<=7;j++){
+            utt[doc.id][j]=JSON.parse(doc.data()[j]);
+          }
+        });
+        console.log(utt);
+        createUserContents(utt);
+      })
+      .catch((error)=>{
+        console.log(`データの取得に失敗しました (${error})`);
+        return;
+      });
     }
+
+    function createUserContents(utt){
+      var days = ["Mon","Tue","Wed","Thu","Fri","Sat"];
+
+      //本来の処理入れて
+
+      var user_subjects_text = '{"物理学概論":"〇〇", "基礎科学実験":"△△", "総合コミュニケーション科学":"□□", "数理学統計":"☆☆", "ソフトウェアセキュリティ":"○□"}'
+      var user_subjects_json = JSON.parse(user_subjects_text);
+
+      var j = 0;
+      for(var i = 1; i <= Object.keys(user_subjects_json).length; i++){
+        //
+        if (i % 4 === 1){
+          var div_row = document.createElement('div');
+          div_row.classList.add('row','text-center');
+          div_row.id = "row text-center " + i;
+          var subjects = document.getElementById("user_subjects");
+          subjects.appendChild(div_row);
+          j++;
+        } else {
+          var div_row = document.getElementById("row text-center " + j);
+          console.log("a")
+        }
+
+        var div_subject_card = document.createElement('div');
+        div_subject_card.classList.add('col-lg-3','col-md-6','mb-4');
+        div_subject_card.id = "col-lg-3 col-md-6 mb-4 " + i;
+        div_row.appendChild(div_subject_card);
+        //
+        var div_card = document.createElement('div');
+        div_card.classList.add('card','h-100');
+        div_card.id = "card h-100 " + i;
+        div_subject_card.appendChild(div_card);
+        //
+        var div_card_body = document.createElement('div');
+        div_card_body.classList.add('card-body');
+        div_card_body.id = "card-body " + i;
+        div_card.appendChild(div_card_body);
+        //
+        var div_card_title = document.createElement('h4');
+        div_card_title.classList.add('card-title');
+        div_card_title.id = "card-title " + i;
+        div_card_title.textContent = Object.keys(user_subjects_json)[i-1];
+        div_card_body.appendChild(div_card_title);
+        //
+        var p_card_text = document.createElement('p');
+        p_card_text.classList.add('card-text');
+        p_card_text.id = "card-text " + i;
+        p_card_text.textContent = Object.values(user_subjects_json)[i-1] + " 教授";
+        div_card_body.appendChild(p_card_text);
+        //
+        var div_card_footer = document.createElement('div');
+        div_card_footer.classList.add('card-footer');
+        div_card_footer.id = "card-footer " + i;
+        div_card.appendChild(div_card_footer);
+        //
+        var a_card_footer = document.createElement('a');
+        a_card_footer.classList.add('btn', 'btn-primary');
+        a_card_footer.id = "card-footer " + i;
+        a_card_footer.textContent = "レビューを見る"
+        a_card_footer.href = "/subject_review?subject=" + encodeURIComponent(div_card_title.textContent.toString());
+        div_card_footer.appendChild(a_card_footer);
+
+      }
+    }
+
+    getUserTimetable();
 
 
   </script>
