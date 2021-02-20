@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>サークル|Mentaiko University</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+
+  <!-- Including Intro.js -->
+  <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mentaiko University</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../home">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../timetable">時間割</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">チャット</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">サークル
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link white" href="#"><span class="login-button">博多 明太子</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4 white">
+      <h1 class="display-3">部活・サークル</h1>
+      <p class="lead">明太子大学に存在する部活・サークル一覧です。あなたにぴったりなサークルがきっと見つかります！</p>
+      {% comment %} <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="訪問ありがとうございます！もし使い方に困ったら、またこのボタンを押してくださいね！" data-title="チュートリアル">Tutorial</a> {% endcomment %}
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/baseball.jpg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">野球部</h4>
+            <p class="card-text">我々野球部は毎週週4日練習に取り組んでいます！昨年度(20xx年)の大会では準優勝の成績を残しました！経験者・未経験者問いません！是非足を運んでみてください！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://instagram.com/">
+              <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instagram">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/debate.jpeg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">ディベート部</h4>
+            <p class="card-text">我々は毎年5月に行われる大会へ向けて活動を行っています。弊部で培った技術は就活や社会に出てからも役立つと思います！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://hoge.com/">
+              <img src="{% static "image/web_page.png"%}" width="auto" height="30px" hspace="5" alt="Web Page">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/drama.jpg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">演劇サークル</h4>
+            <p class="card-text">我々は毎年4つの公演を立てています。未経験者が半分以上です。是非一度我々の演劇を見に来ませんか？過去の公演も見ることができます！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://instagram.com/">
+              <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://hoge.com/">
+              <img src="{% static "image/web_page.png"%}" width="auto" height="30px" hspace="5" alt="Web Page">
+            </a>
+            <a href="https://youtube.com/">
+              <img src="{% static "image/youtube.png"%}" width="auto" height="30px" hspace="5" alt="YouTube">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/exchange_students.jpg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">留学生交流</h4>
+            <p class="card-text">現在大学に在学している留学生の出身国は40か国以上と様々です！語学学習のためだけでなく、異文化交流に興味がある方は是非一度ランチに遊びに来てください！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://instagram.com/">
+            <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://hoge.com/">
+            <img src="{% static "image/web_page.png"%}" width="auto" height="30px" hspace="5" alt="Web Page">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/soccer.jpeg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">サッカーサークル</h4>
+            <p class="card-text">普段は学校のグラウンドで練習をしています！強制的な練習は無いので、学業が忙しくても大丈夫！マネージャーも募集しています！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://instagram.com/">
+            <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/tennis.jpg"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">テニスサークル</h4>
+            <p class="card-text">テニスが好きな人！先輩や同級生とつながりたい人！だれでも気軽に参加してください！履修相談にも乗ります！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://instagram.com/">
+            <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/boardgame.png"%}" alt="">
+          <div class="card-body">
+            <h5 class="card-title">ボードゲームサークル</h4>
+            <p class="card-text">ボードゲームが好きな人！やったことが無い人！どちらも大歓迎です！現在はオンラインで活動しています。是非一度参加してみてください！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="LINE">
+            </a>
+            <a href="https://discord.com/">
+            <img src="{% static "image/discord.png"%}" width="auto" height="30px" hspace="5" alt="Discord">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/text_sankasya_bosyu.png"%}" alt="">
+          <div class="card-body">
+            <h4 class="card-title">サークル生へ</h4>
+            <p class="card-text">このページに自分のサークル情報を載せたい方はお気軽にお問い合わせください。</p>
+          </div>
+          <div class="card-footer">
+            <a href="mailto:mentaiko@hoge.jp" class="btn btn-primary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Team-I Mentaiko 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+</body>
+</html>
