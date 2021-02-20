@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>授業情報共有掲示板|Mentaiko University</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+  <link href="{% static 'css/timetable.css' %}" rel="stylesheet">
+
+  <!-- Including Intro.js -->
+  <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mentaiko University</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/test">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4 white">
+      <h1 class="display-3">授業情報共有掲示板</h1>
+      <p class="lead">履修している授業の情報を共有しましょう</p>
+      <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="ここでは履修している授業の情報を学生の間で共有できます" data-title="チュートリアル">How to use?</a>
+    </header>
+
+    <div id="user_subjects">
+
+      <!-- Page Features -->
+      <!-- /.row -->
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Team-I Mentaiko 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+
+
+
+  <script>
+
+    var user_subjects_text = '{"物理学概論":"〇〇", "基礎科学実験":"△△", "総合コミュニケーション科学":"□□", "数理学統計":"☆☆", "ソフトウェアセキュリティ":"○□"}'
+    var user_subjects_json = JSON.parse(user_subjects_text);
+    var j = 0;
+    for(var i = 1; i <= Object.keys(user_subjects_json).length; i++){
+      //
+      if (i % 4 === 1){
+        var div_row = document.createElement('div');
+        div_row.classList.add('row','text-center');
+        div_row.id = "row text-center " + i;
+        var subjects = document.getElementById("user_subjects");
+        subjects.appendChild(div_row);
+        j++;
+      } else {
+        var div_row = document.getElementById("row text-center " + j);
+        console.log("a")
+      }
+
+      var div_subject_card = document.createElement('div');
+      div_subject_card.classList.add('col-lg-3','col-md-6','mb-4');
+      div_subject_card.id = "col-lg-3 col-md-6 mb-4 " + i;
+      div_row.appendChild(div_subject_card);
+      //
+      var div_card = document.createElement('div');
+      div_card.classList.add('card','h-100');
+      div_card.id = "card h-100 " + i;
+      div_subject_card.appendChild(div_card);
+      //
+      var div_card_body = document.createElement('div');
+      div_card_body.classList.add('card-body');
+      div_card_body.id = "card-body " + i;
+      div_card.appendChild(div_card_body);
+      //
+      var div_card_title = document.createElement('h4');
+      div_card_title.classList.add('card-title');
+      div_card_title.id = "card-title " + i;
+      div_card_title.textContent = Object.keys(user_subjects_json)[i-1];
+      div_card_body.appendChild(div_card_title);
+      //
+      var p_card_text = document.createElement('p');
+      p_card_text.classList.add('card-text');
+      p_card_text.id = "card-text " + i;
+      p_card_text.textContent = Object.values(user_subjects_json)[i-1] + " 教授";
+      div_card_body.appendChild(p_card_text);
+      //
+      var div_card_footer = document.createElement('div');
+      div_card_footer.classList.add('card-footer');
+      div_card_footer.id = "card-footer " + i;
+      div_card.appendChild(div_card_footer);
+      //
+      var a_card_footer = document.createElement('a');
+      a_card_footer.classList.add('btn', 'btn-primary');
+      a_card_footer.id = "card-footer " + i;
+      a_card_footer.textContent = "Go!"
+      a_card_footer.href = "#"
+      div_card_footer.appendChild(a_card_footer);
+
+    }
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
