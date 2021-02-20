@@ -18,10 +18,12 @@ from django.urls import path
 from . import home
 from . import timetable
 from . import circle
+from . import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home.home, name='home'),
     path('timetable/', timetable.timetable, name='timetable'),
     path('circle/', circle.circle, name='circle'),
+    path('', index.index, name='index'),
 ]
