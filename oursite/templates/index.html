@@ -53,57 +53,87 @@
     </header>
 
     <!-- Page Features -->
-    <div class="row text-center index-contents-container">
+    <div class="row index-contents-container">
 
-      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true">
+      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true" data-aos-anchor-placement="top-bottom"> 
         <div class="index-image" data-aos="flip-left" data-aos-once="true">
-          <img src="{% static "image/home_sample.png"%}" width="300px" height="auto" alt="">
+          <img src="{% static "image/timetable_sample.png"%}" width="300px" height="auto" alt="">
         </div>
-        <div class="index-text float-right" data-aos="fade-up" data-aos-once="true">
+        <div class="index-text float-right text-left" data-aos="fade-up" data-aos-once="true">
+          <h3 class="index-text-title">時間割</br></h3>
           <p>
-            トップページでは会員限定コンテンツを一覧で見ることができます。</br>
-            最新情報は随時更新していきますので、たまに覗きに来てくださいね！
+            大学からは自分で履修科目を選択する必要があります。</br>
+            このページでは学科や学年に合わせて必修科目が自動で入力されます。</br>
+            これで履修漏れによる留年の心配もありません！</br>
+            公開されている先輩や同級生の履修も参考にできます。</br>
+            計画的な時間割を完成させましょう！
           </p>
         </div>
       </div>
 
-      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true">
-        <div class="index-text float-right" data-aos="fade-up" data-aos-once="true">
+      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+        <div class="index-text float-right text-left" data-aos="fade-up" data-aos-once="true">
+          <h3 class="index-text-title">交流掲示板</br></h3>
           <p>
-            トップページでは会員限定コンテンツを一覧で見ることができます。</br>
-            最新情報は随時更新していきますので、たまに覗きに来てくださいね！
+            リモート授業が当たり前になった現在、</br>
+            学校に行かずして友人を作るのは至難の業です。</br>
+            交流掲示板を利用して、明太子大学の学生と交流してみませんか？</br>
+            弊大学には約1万人の学生が在籍しています。</br>
+            あなたと共通の趣味を持った人も必ずいるはず！</br>
+            気軽に参加してみましょう！</br>
           </p>
         </div>
         <div class="index-image" data-aos="flip-left" data-aos-once="true">
-          <img src="{% static "image/home_sample.png"%}" width="300px" height="auto" alt="">
+          <img src="{% static "image/chat_image.png"%}" width="300px" height="auto" alt="">
+        </div>
+      </div>
+      
+      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+        <div class="index-image" data-aos="flip-left" data-aos-once="true">
+          <img src="{% static "image/circle_sample.png"%}" width="300px" height="auto" alt="">
+        </div>
+        <div class="index-text float-right text-left" data-aos="fade-up" data-aos-once="true">
+          <h3 class="index-text-title">部活・サークル</br></h3>
+          <p>
+            明太子大学に存在する部活やサークルのSNS情報を掲載しています。</br>
+            実は、明太子大学には100を超える部活・サークルがあります！</br>
+            現在は対面の活動は禁止されていますので、</br>
+            オンラインで先輩や同級生と交流してみませんか？</br>
+            中には現在もオンラインで活動するサークルがあるようです！</br>
+            是非、あなたにぴったりの部活・サークルを探してみてください！</br>
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="index-entry col-12 mb-4" data-aos="fade-up" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+        <h1 class="text-center pt-5 pb-5">参加してみよう！</h1>
+        <div class="pl-5 pr-5 pt-3 pb-3">
+          <p>
+            本サイトのコンテンツはすべて大学の学生専用です。</br>
+            そのため、利用するためには<u>学校専用メールアドレス(xx@mentai.jp) (※)</u>で、参加登録をする必要があります。</br>
+            <ul>
+              <li>履修で何を取ればいいかわからないとき</li>
+              <li>大学生活における便利な情報を知りたいとき</li>
+              <li>自分に合った友人やサークルを見つけたいとき</li>
+            </ul>
+            是非本サイトを有効活用してくださいね！</br>
+          </p>
+        </div>
+        <p class="pl-5 pr-5 pt-3">(※)学校専用メールアドレスは入学手続き書類内に同封されています。</p>
+        <div class="text-center pt-3 pb-3">
+          <h3 class="pt-3 pb-3">参加登録は下のボタンから！</h3>
+          <a href="#" style="font-size: 15pt;" class="btn btn-info mb-3 mt-3 index-btn">新規登録</a>
+        </div>
+        <div class="text-center pt-3 pb-3">
+          <h3 class="pt-3 pb-3">既に登録済みの人は下のボタンから！</h3>
+          <a href="#" style="font-size: 15pt;" class="btn btn-primary mb-3 mt-3 index-btn">ログイン</a>
         </div>
       </div>
       
 
 
-
-
-
-
-
-      {% comment %} <div class="col-lg-3 col-md-6 mb-4t" data-aos="flip-left" data-aos-once="true">
-        <div class="card h-100">
-          <img class="card-img-top" src="{% static "image/baseball.jpg"%}" alt="">
-          <div class="card-body">
-            <h4 class="card-title">野球部</h4>
-            <p class="card-text">我々野球部は毎週週4日練習に取り組んでいます！昨年度(20xx年)の大会では準優勝の成績を残しました！経験者・未経験者問いません！是非足を運んでみてください！</p>
-          </div>
-          <div class="card-footer">
-            <a href="https://twitter.com/">
-              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="10" alt="Twitter">
-            </a>
-            <a href="https://instagram.com/">
-              <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="10" alt="Instagram">
-            </a>
-          </div>
-        </div>
-      </div> {% endcomment %}
-      
     </div>
     <!-- /.row -->
 
