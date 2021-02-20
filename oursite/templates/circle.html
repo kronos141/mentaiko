@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Circle|Mentaiko University</title>
+  <title>サークル|Mentaiko University</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
@@ -33,21 +33,21 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="../test">Home</a>
+            <a class="nav-link" href="../home">ホーム</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../timetable">時間割</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">チャット</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Circle
+            <a class="nav-link" href="#">サークル
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link white" href="#"><span class="login-button">Log in</span></a>
+            <a class="nav-link white" href="#"><span class="login-button" data-step="5" data-intro="自分のアカウントでログインしていることが確認できたら、早速使い始めましょう！" data-title="ログイン状況">博多 明太子</span></a>
           </li>
         </ul>
       </div>
@@ -58,7 +58,7 @@
   <div class="container">
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4 white">
-      <h1 class="display-3">Club・Circle</h1>
+      <h1 class="display-3">部活・サークル</h1>
       <p class="lead">明太子大学に存在する部活・サークル一覧です。あなたにぴったりなサークルがきっと見つかります！</p>
       {% comment %} <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="訪問ありがとうございます！もし使い方に困ったら、またこのボタンを押してくださいね！" data-title="チュートリアル">Tutorial</a> {% endcomment %}
     </header>
@@ -75,10 +75,13 @@
           </div>
           <div class="card-footer">
             <a href="https://twitter.com/">
-              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="10" alt="Twitter">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
             </a>
             <a href="https://instagram.com/">
-              <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="10" alt="Instagram">
+              <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instagram">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
             </a>
           </div>
         </div>
@@ -93,9 +96,14 @@
           </div>
           <div class="card-footer">
             <a href="https://twitter.com/">
-              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="10" alt="Twitter">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
             </a>
-            <img src="{% static "image/web_page.png"%}" width="auto" height="30px" hspace="10" alt="Web page">
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://hoge.com/">
+              <img src="{% static "image/web_page.png"%}" width="auto" height="30px" hspace="5" alt="Web Page">
+            </a>
           </div>
         </div>
       </div>
@@ -159,6 +167,9 @@
             <a href="https://instagram.com/">
             <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
             </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
           </div>
         </div>
       </div>
@@ -176,6 +187,30 @@
             </a>
             <a href="https://instagram.com/">
             <img src="{% static "image/instagram.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="Instargam">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static "image/boardgame.png"%}" alt="">
+          <div class="card-body">
+            <h5 class="card-title">ボードゲームサークル</h4>
+            <p class="card-text">ボードゲームが好きな人！やったことが無い人！どちらも大歓迎です！現在はオンラインで活動しています。是非一度参加してみてください！</p>
+          </div>
+          <div class="card-footer">
+            <a href="https://twitter.com/">
+              <img src="{% static "image/twitter.png"%}" width="auto" height="30px" hspace="5" alt="Twitter">
+            </a>
+            <a href="https://line.me/">
+            <img src="{% static "image/line.png"%}" width="auto" height="30px" hspace="5" alt="LINE">
+            </a>
+            <a href="https://discord.com/">
+            <img src="{% static "image/discord.png"%}" width="auto" height="30px" hspace="5" alt="Discord">
             </a>
           </div>
         </div>

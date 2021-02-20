@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import test
+from . import home
 from . import timetable
 from . import circle
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test.test, name='test'),
+    path('home/', home.home, name='home'),
     path('timetable/', timetable.timetable, name='timetable'),
     path('circle/', circle.circle, name='circle'),
 ]
