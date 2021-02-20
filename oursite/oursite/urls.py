@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home.home, name='home'),
     path('timetable/', timetable.timetable, name='timetable'),
-
+    path('subject_review/', subjectbb.subjectReview, name='subject_review'),
     path('subjectBB/', subjectbb.subjectbb, name='subjectBB'),
     path('circle/', circle.circle, name='circle'),
     path('', index.index, name='index'),
