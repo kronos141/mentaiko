@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import test
+from . import home
 from . import timetable
+from . import subjectbb
+from . import circle
+from . import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', test.test, name='test'),
+    path('home/', home.home, name='home'),
     path('timetable/', timetable.timetable, name='timetable'),
+
+    path('subjectBB/', subjectbb.subjectbb, name='subjectBB'),
+    path('circle/', circle.circle, name='circle'),
+    path('', index.index, name='index'),
 ]
