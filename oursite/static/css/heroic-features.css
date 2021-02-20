@@ -29,3 +29,42 @@ body {
 .index-background{
   background-color: #AEC4E5;
 }
+
+.index-contents-container{
+  margin-top: 200px;
+  margin-bottom: 1.5rem;
+}
+
+.index-image{
+  text-align: left;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 0.25rem;
+  margin-right: 15px;
+  margin-left: 15px;
+  background-color: #fff;
+}
+
+.index-text{
+  display: flex;
+  align-items: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #fff;
+}
+
+.exp-of-contents{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #6088C6;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 0.25rem;
+}

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Index|Mentaiko University</title>
+  <title>Mentaiko University</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
@@ -43,14 +43,50 @@
   <!-- Page Content -->
   <div class="container">
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4 white">
-      <h1 class="display-3" style="text-align:center">ようこそ！</h1>
-      <p class="lead" style="text-align:center">明太子大学に存在する部活・サークル一覧です。あなたにぴったりなサークルがきっと見つかります！</p>
+    <header class="index-top-container jumbotron my-5 white">
+      <h1 class="display-3" style="text-align:center">Welcome to</br>Mentaiko University！</h1></br></br>
+      <p style="text-align:center">
+        こんにちは！こちらは明太子大学生専用のホームページです。</br>
+        学生限定コンテンツが盛りだくさんです！</br>
+        まずはどんなことができるのか見てみましょう！
+      </p>
     </header>
 
     <!-- Page Features -->
-    <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4t" data-aos="flip-left" data-aos-once="true">
+    <div class="row text-center index-contents-container">
+
+      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true">
+        <div class="index-image" data-aos="flip-left" data-aos-once="true">
+          <img src="{% static "image/home_sample.png"%}" width="300px" height="auto" alt="">
+        </div>
+        <div class="index-text float-right" data-aos="fade-up" data-aos-once="true">
+          <p>
+            トップページでは会員限定コンテンツを一覧で見ることができます。</br>
+            最新情報は随時更新していきますので、たまに覗きに来てくださいね！
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-of-contents col-12" data-aos="fade-up" data-aos-once="true">
+        <div class="index-text float-right" data-aos="fade-up" data-aos-once="true">
+          <p>
+            トップページでは会員限定コンテンツを一覧で見ることができます。</br>
+            最新情報は随時更新していきますので、たまに覗きに来てくださいね！
+          </p>
+        </div>
+        <div class="index-image" data-aos="flip-left" data-aos-once="true">
+          <img src="{% static "image/home_sample.png"%}" width="300px" height="auto" alt="">
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+      {% comment %} <div class="col-lg-3 col-md-6 mb-4t" data-aos="flip-left" data-aos-once="true">
         <div class="card h-100">
           <img class="card-img-top" src="{% static "image/baseball.jpg"%}" alt="">
           <div class="card-body">
@@ -66,7 +102,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> {% endcomment %}
       
     </div>
     <!-- /.row -->

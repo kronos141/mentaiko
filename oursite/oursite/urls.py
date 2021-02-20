@@ -25,5 +25,5 @@ urlpatterns = [
     path('test/', test.test, name='test'),
     path('timetable/', timetable.timetable, name='timetable'),
     path('circle/', circle.circle, name='circle'),
-    path('index/', index.index, name='index'),
+    path('', index.index, name='index'),
 ]
