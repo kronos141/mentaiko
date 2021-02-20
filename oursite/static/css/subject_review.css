@@ -1,0 +1,35 @@
+.subject_review_lists {
+  padding: 0;
+}
+
+.subject_review_list {
+  color: #404040;
+  border-left: solid 6px #1fa67a;/*左側の線*/
+  border-bottom: solid 2px #dadada;/*下に灰色線*/
+  background: whitesmoke;
+  margin-bottom: 5px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+  font-weight: bold;
+}
+
+.review-rating {
+  position: relative;
+
+  display:inline-block;
+  font-size: 25px;
+}
+.review-rating .review-rating-item{
+  position:absolute;
+  
+  overflow: hidden;
+}
+.review-rating .review-rating-item:before{
+  content:"★★★★★";
+  color: #ffcc33;
+}
+.review-rating:after {
+  content:"★★★★★";
+  color: #ccc;
+}

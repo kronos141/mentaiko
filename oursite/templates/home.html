@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Home|Mentaiko University</title>
+  <title>ホーム|Mentaiko University</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
@@ -33,18 +33,21 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="#">ホーム
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../timetable">時間割</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">チャット</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link white" href="#"><span class="login-button" data-step="5" data-intro="紹介したものは全て大学生限定コンテンツです！ここからログイン/サインアップして始めましょう！" data-title="ログイン/サインアップ">Log in</span></a>
+            <a class="nav-link" href="../circle">サークル</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link white" href="#"><span class="login-button" data-step="5" data-intro="自分のアカウントでログインしていることが確認できたら、早速使い始めましょう！" data-title="ログイン状況">博多 明太子</span></a>
           </li>
         </ul>
       </div>
@@ -71,7 +74,7 @@
             <p class="card-text">自分が登録した時間割の確認ができます。先輩や友人の履修を参考にしながら履修登録を行えます。</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Go!</a>
+            <a href="../timetable" class="btn btn-primary">Go!</a>
           </div>
         </div>
       </div>
@@ -97,7 +100,7 @@
             <p class="card-text">自分の趣味に合ったサークルを探すことができます。サークルで先輩や後輩と交流してみましょう。</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Go!</a>
+            <a href="../circle" class="btn btn-primary">Go!</a>
           </div>
         </div>
       </div>

@@ -24,14 +24,14 @@
  }
 
  table th{
-   background-color: #c79852;
+   background-color: #454545;
    color: white;
-   border:solid 1px #927141;
+   border:solid 1px #000000;
    cursor: default;
  }
 
  table td{
-   background-color: #e4d4bc;
+   background-color: #eeeeee;
    border:solid 1px #af9d85;
  }
 
@@ -43,9 +43,10 @@
 
 /* 最上段,曜日のセル */
 .ehr-timetable-daycell {
-  background-color: #c79852;
+  background-color: #454545;
   color: white;
-  border:solid 1px #927141;
+  font-weight: bold;
+  border:solid 1px #000000;
   cursor: default;
 }
 
@@ -114,4 +115,16 @@
   outline: none;
   line-height: 1.6;
   resize: vertical;
+}
+
+.btn.btn-submit{
+  background-color: #4072B3;
+  color: white;
+  border:solid 1px #4072B3;
+}
+
+.btn.btn-delete{
+  color: #EE817B;
+  position: absolute;
+  left: 0.01em;
 }
