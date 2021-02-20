@@ -3,7 +3,7 @@ from django import forms
 from .models import StudentUser,MyUserManager
 
 
-def signup(request):
+def signupview(request):
     if request.method == 'POST':
         print(request.method)
         email = request.POST['email']
@@ -23,7 +23,6 @@ def signup(request):
         return redirect('home')
     
     else:
-        print('fail')
         return render(request, 'signup.html')
 
 
@@ -67,3 +66,9 @@ class SignUpForm(forms.Form):
             email=email,
             password=password)
 
+
+def loginview(request):
+    if request.method == 'POST':
+        return redirect('home')
+    else:
+        return render(request, 'login.html')

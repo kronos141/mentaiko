@@ -1,1 +1,4 @@
 __pycache__
+oursite/oursite/__pycache__
+oursite/oursite/migrations
+oursite/db.sqlite3

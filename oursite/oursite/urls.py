@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import base
 from django.contrib.auth import views as auth_views
-from . import test
 from . import home
 from . import timetable
 from . import subjectbb
 from . import circle
 from . import index
-from .views import signup
+from . import views
 
 
 urlpatterns = [
@@ -33,9 +32,8 @@ urlpatterns = [
     path('subject_review/', subjectbb.subjectReview, name='subject_review'),
     path('subjectBB/', subjectbb.subjectbb, name='subjectBB'),
     path('circle/', circle.circle, name='circle'),
-    path('signup/',signup,name='signup'),
-    path('login/', auth_views.LoginView.as_view(template_name="login.html"), name='login'),
-    path('profile/', base.RedirectView.as_view(pattern_name="index")),
+    path('signup/',views.signupview,name='signup'),
+    path('login/', views.loginview, name='login'),
     path('', index.index, name='index'),
 
 ]

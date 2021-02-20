@@ -1,7 +1,94 @@
-<h1>Please Login to Polls App.</h1>
-<form action="{% url 'login' %}" method="post">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Login">
-</form>
-<p>or <a href= "{% url 'signup' %}">Sign Up</a></p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>ホーム|Mentaiko University</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+  
+  </head>
+
+  <style>
+    div.hoge{
+    clear:both;
+    float:left;
+    width:200px;
+    }
+  </style>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Mentaiko University</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container" style="text-align:center;">
+      <header class="jumbotron my-4 white">
+        <h1 class="display-3">ログインページ</h1>
+      </header>
+
+      <form method="POST">{%csrf_token%}
+        <div class="item">
+          <div class="hoge"><label class="label">メールアドレス</label></div>
+          <div><input class="inputs" type="email" name="email"></div>
+        </div>
+        <hr>
+
+        <div class="item">
+          <div class="hoge"><label class="label">password</label></div>
+          <div><input class="inputs" type="text" name="enter_password"></div>
+        </div>
+        <hr>
+
+        <input type="submit" value="login" />
+
+      </form>
+
+      <p>or <a href= "{% url 'signup' %}">登録</a></p>
+
+    </div>
+
+  </body>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Team-I Mentaiko 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+</html>
