@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>授業情報共有掲示板|Mentaiko University</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+  <link href="{% static 'css/subject_review.css' %}" rel="stylesheet">
+
+  <!-- Including Intro.js -->
+  <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mentaiko University</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/test">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4 white">
+      <!-- <h3 class="display-3" id="selected_subject"></h3>-->
+      <h2 id="selected_subject"></h2>
+    </header>
+
+    <div id="subject_review">
+
+      <!-- Page Features -->
+      <div class="subject_review_lists">
+        <div class="subject_review_list">
+          <div class="review-rating">
+            <div class="review-rating-item" style="width:80%;"></div>
+          </div>
+          <div class="review_text">説明がわかりやすい</div>
+          <div class="review_author">(by.博多 明太郎)</div>
+        </div>
+        <div class="subject_review_list">
+          <div class="review-rating">
+            <div class="review-rating-item" style="width:40%;"></div>
+          </div>
+          <div class="review_text"></div>
+          <div class="review_author">(by.博多 明二郎)</div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Team-I Mentaiko 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script type="text/javascript" src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+
+  <script>
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyDCHZbRj-1SEw4mDLCfMhxW9eNSRGvmIPU",
+      authDomain: "mentaiko-b1515.firebaseapp.com",
+      projectId: "mentaiko-b1515",
+      storageBucket: "mentaiko-b1515.appspot.com",
+      messagingSenderId: "147300021097",
+      appId: "1:147300021097:web:03b93f15415244945383f8",
+      measurementId: "G-BR0ZB7KWX1"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    //databaseから読み込み
+    var db = firebase.firestore();
+
+    var query = location.search;
+    var value = query.split('=');
+    var selected_subject = decodeURIComponent(value[1]);
+
+    var page_title = document.getElementById('selected_subject');
+    page_title.textContent = selected_subject;
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>
