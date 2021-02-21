@@ -19,6 +19,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static 'css/heroic-features.css' %}" rel="stylesheet">
+  <link href="{% static 'css/timetable.css' %}" rel="stylesheet">
   <link href="{% static 'css/subject_review.css' %}" rel="stylesheet">
 
   <!-- Including Intro.js -->
@@ -43,10 +44,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../timetable">時間割</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">チャット</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../circle">サークル</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
@@ -69,7 +73,7 @@
     <div id="subject_review">
 
       <!-- Page Features -->
-      <div class="subject_review_lists">
+      <div class="subject_review_lists" id="subject_review_lists">
         <div class="subject_review_list">
           <div class="review-rating">
             <div class="review-rating-item" style="width:80%;"></div>
@@ -81,11 +85,61 @@
           <div class="review-rating">
             <div class="review-rating-item" style="width:40%;"></div>
           </div>
-          <div class="review_text"></div>
+          <div class="review_text">課題が多い</div>
           <div class="review_author">(by.博多 明二郎)</div>
         </div>
 
       </div>
+
+      <div class="review_button">
+        <button class="btn btn-primary btn-review" onclick="CreateModal();">レビューを書く</button>
+      </div>
+
+      <!-- ポップアップ -->
+      <div class="modal fade" id="ehr-Modal" tabindex="-1">
+      	<div class="modal-dialog">
+      		<div class="modal-content">
+      			<div class="modal-header">
+      				<h4 class="modal-title">レビュー</h4>
+      			</div>
+            <dd class="data multi3">
+                <div class="fiveStar">
+                    <input id="star1" type="radio" value="5">
+                    <label for="star1" class="star"><span class="evaluation" style="left: -40px;"></span>★</label>
+                    <input id="star2" type="radio" value="4">
+                    <label for="star2" class="star"><span class="evaluation">&nbsp;</span>★</label>
+                    <input id="star3" type="radio" value="3">
+                    <label for="star3" class="star"><span class="evaluation">&nbsp;</span>★</label>
+                    <input id="star4" type="radio" value="2">
+                    <label for="star4" class="star"><span class="evaluation">&nbsp;</span>★</label>
+                    <input id="star5" type="radio" value="1">
+                    <label for="star5" class="star"><span class="evaluation"></span>★</label>
+                </div>
+                <p id="error_msg" class="error_msg"></p>
+            </dd>
+      			<div class="modal-body">
+              <div id="ehr-subject-author">
+                <div>
+                  名前
+                </div>
+                <input type="text" class="review-author" id="review-author"></input>
+              </div>
+              <div id="ehr-subject-note">
+                <div>
+                  本文
+                </div>
+      				  <textarea class="review-text" id="review-text" cols="40" rows="5" wrap="soft"></textarea>
+              </div>
+            </div>
+      			<div class="modal-footer">
+      				<button type="button" class="btn btn-cancel" data-dismiss="modal">キャンセル</button>
+      				<button type="button" class="btn btn-submit" onclick="modalButtonClick()">投稿</button>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+
+
       <!-- /.row -->
     </div>
 
@@ -137,10 +191,79 @@
 
     var query = location.search;
     var value = query.split('=');
-    var selected_subject = decodeURIComponent(value[1]);
+    var selected_subject = decodeURIComponent(value[1] + "（〇〇教授）");
 
     var page_title = document.getElementById('selected_subject');
     page_title.textContent = selected_subject;
+
+
+
+
+    function CreateModal(e){
+      var modal = $('#ehr-Modal');
+      modal.modal();
+    }
+
+
+    //
+    function modalButtonClick(){
+      try {
+        for (var i = 1; i <= 5; i++){
+          var star = document.getElementById("star" + i);
+          if ( star.checked ) {
+        		var rate = star.value ;
+            star.checked = false;
+        		break ;
+        	}
+        }
+        if (rate === undefined){
+          var error_msg = document.getElementById("error_msg");
+          error_msg.textContent = "  星1つ以上を選択してください";
+        } else {
+          var author = document.getElementById("review-author");
+          var text = document.getElementById("review-text");
+          addReview(author.value.toString(),text.value.toString(),rate);
+          $('#ehr-Modal').modal('hide');
+        }
+      } catch (error){
+        console.log(error)
+        $('#ehr-Modal').modal('hide');
+      }
+      console.log(rate);
+    }
+
+
+    //
+    function addReview(author,text,rate){
+
+      var new_review_rate = document.createElement("div");
+      new_review_rate.classList.add('review-rating-item');
+      new_review_rate.setAttribute("style","width:" + (rate * 2) + "0%;")
+
+      var new_review_div = document.createElement("div");
+      new_review_div.classList.add('review-rating');
+      new_review_div.appendChild(new_review_rate);
+
+      if ( author === "" ){
+        author = "名無し";
+      }
+      var new_review_author = document.createElement("div");
+      new_review_author.classList.add('review_author');
+      new_review_author.textContent = "(by." + author + ")";
+
+      var new_review_text = document.createElement("div");
+      new_review_text.classList.add('review_text');
+      new_review_text.textContent = text;
+
+      var new_review = document.createElement("div");
+      new_review.classList.add('subject_review_list');
+      new_review.appendChild(new_review_div);
+      new_review.appendChild(new_review_text);
+      new_review.appendChild(new_review_author);
+
+      var lists = document.getElementById("subject_review_lists");
+      lists.appendChild(new_review);
+    }
 
 
   </script>
