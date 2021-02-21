@@ -36,3 +36,9 @@ sudo ldconfig
 sudo ln -s ~/mentaiko/oursite/server_conf/oursite_nginx.conf /etc/nginx/conf.d/oursite_nginx.conf
 
 sudo chmod o+x /home/ec2-user/
+
+# データベース用意
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+python3 manage.py createsuperuser
