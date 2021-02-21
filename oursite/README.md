@@ -24,6 +24,6 @@ bash run_server.sh
 ```
 nginxを起動して、uwsgi経由でアプリを立ち上げている。
 
-##注意事項
+## 注意事項
 - oursite/oursite_nginx.confのipアドレスを、立ち上げているサーバーのアドレスにする必要がある
 - oursite/settings.pyのSTATIC_ROOTを有効にして、STATIC_DIRSをコメントアウトする必要がある
