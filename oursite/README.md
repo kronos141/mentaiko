@@ -10,7 +10,7 @@ git clone このレポジトリ
 ## サーバーの準備
 ```
 cd mentaiko/oursite
-bash prepare_server.sh
+bash prepare_env.sh
 ```
 主に、次のことをやっている
 - python周りのインストール
