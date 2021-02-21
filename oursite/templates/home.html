@@ -47,7 +47,7 @@
             <a class="nav-link" href="../circle">サークル</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link white" href="#"><span class="login-button" data-step="5" data-intro="自分のアカウントでログインしていることが確認できたら、早速使い始めましょう！" data-title="ログイン状況">博多 明太子</span></a>
+            <a class="nav-link white" href="#"><span class="login-button" data-step="6" data-intro="自分のアカウントでログインしていることが確認できたら、早速使い始めましょう！" data-title="ログイン状況">博多 明太子</span></a>
           </li>
         </ul>
       </div>
@@ -105,18 +105,18 @@
         </div>
       </div>
 
-      {% comment %} <div class="col-lg-3 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 mb-4" data-step="5" data-intro="どの授業を履修するか、先輩の評価を参考にしましょう！" data-title="授業一覧">
         <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          <img class="card-img-top" src="{% static "image/subjectbb_image.png"%}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            <h4 class="card-title">授業情報</h4>
+            <p class="card-text">授業についての先輩方のレビューの閲覧ができます。授業選択の参考にしましょう。</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Go!</a>
+            <a href="/subjectBB" class="btn btn-primary">Go!</a>
           </div>
         </div>
-      </div> {% endcomment %}
+      </div>
 
     </div>
     <!-- /.row -->
