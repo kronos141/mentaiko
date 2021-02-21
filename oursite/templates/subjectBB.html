@@ -31,22 +31,25 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Mentaiko University</a>
+      <a class="navbar-brand" href="/home">Mentaiko University</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/test">Home
+            <a class="nav-link" href="/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../timetable">時間割</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">チャット</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../circle">サークル</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
@@ -63,8 +66,8 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4 white">
       <h1 class="display-3">授業情報共有掲示板</h1>
-      <p class="lead">履修している授業の情報を共有しましょう</p>
-      <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="ここでは履修している授業の情報を学生の間で共有できます" data-title="チュートリアル">How to use?</a>
+      <p class="lead">授業の情報を共有しましょう</p>
+      <a href="#" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();"  data-step="1" data-intro="ここでは授業の情報を学生の間で共有できます" data-title="チュートリアル">How to use?</a>
     </header>
 
     <div id="user_subjects">
@@ -151,7 +154,7 @@
 
       //本来の処理入れて
 
-      var user_subjects_text = '{"物理学概論":"〇〇", "基礎科学実験":"△△", "総合コミュニケーション科学":"□□", "数理学統計":"☆☆", "ソフトウェアセキュリティ":"○□"}'
+      var user_subjects_text = '{"物理学概論":"〇〇", "基礎科学実験":"〇〇", "総合コミュニケーション科学":"〇〇", "数理学統計":"〇〇", "ソフトウェアセキュリティ":"〇〇"}'
       var user_subjects_json = JSON.parse(user_subjects_text);
 
       var j = 0;

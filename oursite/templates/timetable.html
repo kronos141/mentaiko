@@ -31,22 +31,25 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Mentaiko University</a>
+      <a class="navbar-brand" href="/home">Mentaiko University</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/test">Home
+            <a class="nav-link" href="/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/timetable">時間割</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">チャット</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/circle">サークル</a>
           </li>
           <li class="nav-item">
             <a class="nav-link white" href="#"><span class="login-button" data-title="ログイン/サインアップ">博多 明太子</span></a>
@@ -63,7 +66,7 @@
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4 white">
       <h1 class="display-3">時間割</h1>
-      <p class="lead">必修科目・・赤，選択科目・・黄，人文科目・・緑....</p>
+      <p class="lead">必修科目・・赤，選択科目・・白</p>
       <a href="#" id="btn-tutorial" class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="introJs().start();">How to use?</a>
     </header>
 
@@ -162,7 +165,7 @@
     var userTimetable = new Object();
 
 
-    
+
     //科目群
     var s1 = ["キャリア教育基礎","化学概論","プログラミング基礎","線形代数学","微分積分学","基礎科学実験","物理学概論","数学演習第一"];
     var s2 = ["数理統計学","体育","物理学演習","心理学A","経済学A","歴史A","線形代数学","政治A","倫理学A","独語第一","露語第一","仏語第一","中国語第一"];
@@ -258,7 +261,6 @@
         [[""],["数理統計学"],["体育"],[""],[""],[""],[""]]]
       var selectSubject = document.getElementById('new-subject');
       var slectedSubject = document.getElementById("ehr-timetable-" + timed + "-" + (day+1));
-      document.createElement('option')
       for(var i = 0; i < subjects[day][timed-1].length; i++){
         if(subjects[day][timed-1][i] !== ""){
           var option = document.createElement('option');
